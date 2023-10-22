@@ -31,7 +31,7 @@
                 <?=$conversor->getOptionsPara()?>
             </select>
 
-        <button class="my-2 py-2 rounded bg-emerald-600 hover:bg-emerald-800 transition-colors ease-in hover:text-white" type="submit" value="c">Converter</button>
+        <button class="my-2 py-2 rounded bg-emerald-600 hover:bg-emerald-800 transition-colors ease-in hover:text-white" type="submit">Converter</button>
     </form>
     <div class="flex flex-col w-full">
         <label for="numResultado">Resultado:</label>

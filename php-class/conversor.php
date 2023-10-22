@@ -1,20 +1,28 @@
 <?php 
     class Conversor{
         protected float $numero = 0;
-        protected string $de = '';
-        protected string $para = '';
+
         protected float $resultado = 0;
+
+        protected string $de = '';
+
+        protected string $para = '';
+
         protected string $optionsDe = '';
+
         protected string $optionsPara = '';
+
         protected string $mensagem = '';
-        private array $medidas = array(
+
+        protected array $medidas = array(
             'metro(s)',
             'quilometro(s)',
             'centímetro(s)',
             'milimetro(s)'
         );
 
-        // para fazer multiplos construtores já que o php não suporta
+        // Para fazer multiplos construtores já que o php não suporta
+        // Para fazer um construtor basta apenas colocar '__construct' + o número de argumentos
         public function __construct() {
             $argumentos = func_get_args();
             $numeroDeArgumentos = func_num_args();
@@ -28,7 +36,7 @@
             $this->calcular();
             $this->gerarMensagem();
         }
-        
+    
         public function __construct3(float $numero = null, string $de = null, string $para = null) {
             $this->numero = $numero != null ? $numero : 0;
             $this->de = $de != null ? $de : 'null';
@@ -47,6 +55,26 @@
             foreach ($this->medidas as $medida) {
                 $this->optionsPara .= $para == $medida ? "<option value='{$medida}' selected='selected'>{$medida}</option>" : "<option value='{$medida}'>{$medida}</option>";
             }
+        }
+
+         public function getNumero() {
+            return $this->numero;
+        }
+
+        public function getResultado(){
+            return $this->resultado;
+        }
+
+        public function getOptionsDe() {
+            return $this->optionsDe;
+        }
+
+        public function getOptionsPara() {
+            return $this->optionsPara;
+        }
+
+        public function getMensagem() {
+            return $this->mensagem;
         }
 
         private function gerarMensagem(float $num = null, string $de = null, string $para = null, float $resultado = null) {
@@ -88,26 +116,6 @@
                     }
                     break;
             }
-        }
-
-        public function getNumero() {
-            return $this->numero;
-        }
-
-        public function getResultado(){
-            return $this->resultado;
-        }
-
-        public function getOptionsDe() {
-            return $this->optionsDe;
-        }
-
-        public function getOptionsPara() {
-            return $this->optionsPara;
-        }
-
-        public function getMensagem() {
-            return $this->mensagem;
         }
     }
 ?>
